@@ -1,22 +1,22 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const blogRoutes = require('./Routes/BlogRoutes')
-const app = express();
-const port = 3001;
+// require('dotenv').config(); // Added dotenv to access .env variables
+// const express = require('express');
+// const mongoose = require('mongoose');
+// const bodyParser = require('body-parser');
+// const blogRoutes = require('./Routes/BlogRoutes');
+// const authRoutes = require('./Routes/AuthRoutes'); // Uncommented and added this
 
-// Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/CRUD')
-  .then(() => console.log('MongoDB connected'))
-  .catch((err) => console.error('MongoDB connection error:', err));
+// const app = express();
+// const port = process.env.PORT || 3001; // Updated to use .env variable
 
-// Middleware
-app.use(bodyParser.json());
+// mongoose.connect(process.env.MONGO_URI) // Updated to use .env variable
+//   .then(() => console.log('MongoDB connected'))
+//   .catch((err) => console.error('MongoDB connection error:', err));
 
-// Routes
-app.use('/api/blogs', blogRoutes);
+// app.use(bodyParser.json());
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+// app.use('/api/auth', authRoutes); // Uncommented and added this
+// app.use('/api/blogs', blogRoutes);
+
+// app.listen(port, () => {
+//   console.log(`Server is running at http://localhost:${port}`);
+// });
